@@ -57,8 +57,9 @@ export class Code39 {
                 if (i % 2 === 0) {
                     svgString += `<rect x="${index}" y="0" width="${width}" height="${barHeight}" fill="black"/>`;
                 }
-                index += width + options.interCharacterGap;
             }
+            
+            index += options.interCharacterGap;
         }
         const labelX: number = quietZoneWidth + (svgWidth - 2 * quietZoneWidth) / 2;
         const labelY: number = svgHeight - options.labelFontSize / 2;
