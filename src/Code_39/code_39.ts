@@ -39,8 +39,9 @@ export class Code39 {
         const quietZoneWidth: number = options.quietZoneWidthMultiplier * options.narrowBarWidth;
 
         data = `${DATA_DELIMITER}${data}${DATA_DELIMITER}`;
-        const svgWidth: number = quietZoneWidth + (options.narrowBarWidth * 6) + (options.widthRatio * options.narrowBarWidth * 3) + (options.interCharacterGap * (data.length - 1)) + quietZoneWidth;
+        const svgWidth: number = quietZoneWidth + (((options.narrowBarWidth * 6) + (options.widthRatio * options.narrowBarWidth * 3)) * data.length)  + (options.interCharacterGap * (data.length - 1)) + quietZoneWidth;
         const svgHeight: number = Math.max(options.minimumBarHeight, svgWidth * .15) + options.labelFontSize;
+        const barHeight: number = svgHeight - options.labelFontSize;
 
         let index: number = quietZoneWidth;
         let svgString: string = `<svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewBox="0 0 ${svgWidth} ${svgHeight}">`;
@@ -54,7 +55,7 @@ export class Code39 {
                 const barWidth = encoding[i];
                 const width = barWidth === BarWidth.WIDE ? options.widthRatio * options.narrowBarWidth : options.narrowBarWidth;
                 if (i % 2 === 0) {
-                    svgString += `<rect x="${index}" y="0" width="${width}" height="${svgHeight}" fill="black"/>`;
+                    svgString += `<rect x="${index}" y="0" width="${width}" height="${barHeight}" fill="black"/>`;
                 }
                 index += width + options.interCharacterGap;
             }
