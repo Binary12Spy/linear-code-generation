@@ -1,4 +1,5 @@
-import { Code39, Code39Options } from '../src/Code_39/code_39';
+import { Code39 } from '../src/Code_39/code_39';
+import { Code39Options } from '../src/Code_39/code_39_options';
 
 // Mock options for testing
 const defaultOptions: Code39Options = {
@@ -9,6 +10,7 @@ const defaultOptions: Code39Options = {
     quietZoneWidthMultiplier: 10,
     widthRatio: 3,
     minimumBarHeight: 15,
+    labelFontSize: 12,
 };
 
 describe('Code39', () => {

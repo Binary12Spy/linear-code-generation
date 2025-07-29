@@ -1,6 +1,6 @@
-import { ControlCharacter } from "./code_39_control_characters";
+import { ControlCharacter } from "./control_characters";
 
-export const CODE_39_FULL_ASCII_ENCODING: Record<string, string> = {
+export const FULL_ASCII_ENCODING: Record<string, string> = {
     [ControlCharacter.NUL]: '%U',
     [ControlCharacter.SOH]: '$A',
     [ControlCharacter.STX]: '$B',

@@ -1,7 +1,7 @@
 
-# linear-codes-ts
+# linear-codes
 
-This project provides TypeScript implementations for encoding linear barcode formats. Currently, it supports Code 39, including full ASCII and control character handling.
+This project provides implementations for encoding linear barcode formats. Currently, it supports Code 39, including full ASCII and control character handling.
 
 ## Planned Format Support
 - Code 128
@@ -22,7 +22,7 @@ Install dependencies:
 npm install
 ```
 
-Import and use the library in your TypeScript project:
+Import and use the library in your project:
 
 ```ts
 import { /* functions */ } from './src';
