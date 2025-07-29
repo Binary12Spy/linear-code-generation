@@ -40,8 +40,8 @@ export class Code39 {
 
         data = `${DATA_DELIMITER}${data}${DATA_DELIMITER}`;
         const svgWidth: number = quietZoneWidth + (((options.narrowBarWidth * 6) + (options.widthRatio * options.narrowBarWidth * 3)) * data.length)  + (options.interCharacterGap * (data.length - 1)) + quietZoneWidth;
-        const svgHeight: number = Math.max(options.minimumBarHeight, svgWidth * .15) + options.labelFontSize;
-        const barHeight: number = svgHeight - options.labelFontSize;
+        const barHeight: number = Math.max(options.minimumBarHeight, svgWidth * .15);
+        const svgHeight: number = barHeight + options.labelFontSize + (options.labelFontSize * 0.3); // Add some padding below bars
 
         let index: number = quietZoneWidth;
         let svgString: string = `<svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewBox="0 0 ${svgWidth} ${svgHeight}">`;
@@ -63,7 +63,7 @@ export class Code39 {
             index += options.interCharacterGap;
         }
         const labelX: number = quietZoneWidth + (svgWidth - 2 * quietZoneWidth) / 2;
-        const labelY: number = svgHeight - options.labelFontSize / 2;
+        const labelY: number = barHeight + options.labelFontSize;
 
         svgString += `<text x="${labelX}" y="${labelY}" font-size="${options.labelFontSize}" text-anchor="middle">${DATA_STRING}</text>`;
         svgString += '</svg>';
