@@ -57,6 +57,7 @@ export class Code39 {
                 if (i % 2 === 0) {
                     svgString += `<rect x="${index}" y="0" width="${width}" height="${barHeight}" fill="black"/>`;
                 }
+                index += width;
             }
             
             index += options.interCharacterGap;
